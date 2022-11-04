@@ -78,5 +78,43 @@ alias scrape="scrapeUrl"
 alias npmnpm="npm config set registry https://registry.npmjs.org"
 alias npmspatie="npm config set registry https://npm.spatie.be"
 
-# Restart touch bar
-alias touchbar="killall ControlStrip"
+# Personal aliases
+alias kolo="open ."
+alias cda="composer dump-autoload"
+alias gb="gatsby"
+alias aoc="php artisan optimize:clear"
+alias dnskabarosa="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias gpus="git push --set-upstream origin master"
+alias tinker="php artisan tinker"
+alias pa="php artisan"
+alias nrd="npm run dev"
+alias nrp="npm run prod"
+alias nrw="npm run watch"
+alias ni="npm install"
+alias cleardns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias livewire="php artisan livewire"
+
+#  Git
+function commit() {
+  commitMessage="$1"
+
+  if [ "$commitMessage" = "" ]; then
+     commitMessage="wip"
+  fi
+
+  git add .
+  eval "git commit -a -m '${commitMessage}'"
+}
+
+function setg() {
+	BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+	eval "git push --set-upstream origin '${BRANCH}'"
+}
+
+# Vacatia
+alias vu="./vacatia up -d"
+alias vub="./vacatia up -d --build"
+alias vd="./vacatia down"
+alias vy="./vacatia --profile yarn up -d"
+alias vyl="./vacatia yarn watch"
+alias vcu="./vacatia console dev:update-user dev@vacatia.com --owner-id=V-2MMX-M9K2"
