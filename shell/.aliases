@@ -110,11 +110,3 @@ function setg() {
 	BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 	eval "git push --set-upstream origin '${BRANCH}'"
 }
-
-# Vacatia
-alias vu="./vacatia up -d"
-alias vub="./vacatia up -d --build"
-alias vd="./vacatia down"
-alias vy="./vacatia --profile yarn up -d"
-alias vyl="./vacatia yarn watch"
-alias vcu="./vacatia console dev:update-user dev@vacatia.com --owner-id=V-2MMX-M9K2"
