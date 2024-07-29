@@ -160,10 +160,6 @@ echo 'Install ghostscript'
 echo '-------------------'
 brew install ghostscript
 
-echo 'Install mackup'
-echo '--------------'
-brew install mackup
-
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
