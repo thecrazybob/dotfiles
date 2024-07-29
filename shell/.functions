@@ -160,3 +160,8 @@ function browse() {
   url="https://$(basename "$(pwd)").test"
   open "$url"
 }
+
+function setg() {
+    BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+    eval "git push --set-upstream origin '${BRANCH}'"
+}
