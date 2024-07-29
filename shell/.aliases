@@ -30,6 +30,7 @@ alias gc="git checkout"
 alias gpo="git push origin"
 alias gm="git merge"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias uncommit="git reset --soft HEAD~1"
 
 # Fast open
 alias o="open ."
@@ -94,19 +95,5 @@ alias ni="npm install"
 alias cleardns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias livewire="php artisan livewire"
 
-#  Git
-function commit() {
-  commitMessage="$1"
-
-  if [ "$commitMessage" = "" ]; then
-     commitMessage="wip"
-  fi
-
-  git add .
-  eval "git commit -a -m '${commitMessage}'"
-}
-
-function setg() {
-	BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-	eval "git push --set-upstream origin '${BRANCH}'"
-}
+alias php-log="open ~/.config/valet/Log/php-fpm.log"
+alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
