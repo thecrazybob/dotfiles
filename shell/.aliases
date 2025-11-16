@@ -1,6 +1,7 @@
 # PHP
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
+alias pint="vendor/bin/pint --dirty --parallel"
 alias a="php artisan"
 alias ar="php artisan remote"
 alias c="composer"
