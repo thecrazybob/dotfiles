@@ -40,7 +40,7 @@ alias o="open ."
 alias l="ls -laF"
 
 # PhpStorm
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+alias phpstorm='open -a ~/Applications/PhpStorm.app "`pwd`"'
 
 # PHP
 alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
@@ -49,15 +49,12 @@ alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 # Redis
 alias flush-redis="redis-cli FLUSHALL"
 
-# VSCode
-alias code='open -a "/Applications/Visual Studio Code.app" "`pwd`"'
-
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # IP addresses
-alias ip="curl https://diagnostic.opendns.com/myip ; echo"
+alias ip="curl ifconfig.me/ip ; echo"
 alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Flush Directory Service cache
@@ -96,5 +93,10 @@ alias ni="npm install"
 alias cleardns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias livewire="php artisan livewire"
 
+# Restart touch bar
+alias touchbar="killall ControlStrip"
+
 alias php-log="open ~/.config/valet/Log/php-fpm.log"
 alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
+alias proxy="ssh -D 1337 -f -C -q -N forge@freek.dev"
+alias claude-usage='npx ccusage blocks --live'

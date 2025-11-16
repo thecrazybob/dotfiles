@@ -102,3 +102,16 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+
+# fnm
+export PATH="/Users/$DEFAULT_USER/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
+
+eval "$(fnm env --use-on-cd)"
+
+# do not update all homebrew stuff automatically
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+export PATH=/Users/Shared/DBngin/postgresql/17.0/bin:$PATH
+
+export PATH=$HOME/bin:~/.config/phpmon/bin:$PATH
