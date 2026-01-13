@@ -1,23 +1,45 @@
-# My personal dotfiles
+# Dotfiles
 
-My personal dotfiles. Also used by nearly all other geeks at [spatie.be](http://spatie.be) and [the amazing Frederick Vanbrabant](https://twitter.com/maybeFrederick/status/912620087538016257).
+Personal dotfiles for macOS development environment.
 
-It contains the installation of some basic tools, some handy aliases and functions. Backups of settings are done via [Mackup](https://github.com/lra/mackup).
+## What's Included
 
-You can install them by cloning the repository as `.dotfiles` in your home directory and running the bootstrap script.
+### Shell Configuration (`shell/`)
+- `.aliases` - Command shortcuts (git, php, npm, composer, claude, etc.)
+- `.exports` - Environment variables and PATH configuration
+- `.functions` - Helper shell functions
+- `.zshrc` - Zsh configuration
+- `.vimrc` - Vim configuration
+- `.global-gitignore` - Global git ignore patterns
+- `z.sh` - Directory jumping script
 
-```
-git clone git@github.com:thecrazybob/dotfiles.git .dotfiles
-cd .dotfiles
-./bootstrap
-```
+### macOS (`macos/`)
+- `set-defaults.sh` - macOS system preferences
+- `.mackup.cfg` - Mackup backup configuration
 
-The bootstrap script can be run by cd-ing into the `.dotfiles` directory and performing this command:
+### Scripts
+- `bootstrap` - Initial setup script
+- `installscript` - Homebrew and tool installation
+
+## Installation
 
 ```bash
+git clone git@github.com:thecrazybob/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ./bootstrap
 ```
 
-Feel free to create an issue on this repo if you have any questions about them.
+## Key Aliases
 
-![screenshot](https://freekmurze.github.io/dotfiles/screenshot.png)
+| Alias | Command |
+|-------|---------|
+| `a` | `php artisan` |
+| `c` | `composer` |
+| `ccd` | `claude --dangerously-skip-permissions` |
+| `nah` | Reset git changes |
+| `mfs` | `php artisan migrate:fresh --seed` |
+| `pp` | `php artisan test --parallel` |
+
+## Mackup
+
+Settings are backed up to Google Drive via [Mackup](https://github.com/lra/mackup).

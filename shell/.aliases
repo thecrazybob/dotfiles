@@ -40,7 +40,7 @@ alias o="open ."
 alias l="ls -laF"
 
 # PhpStorm
-alias phpstorm='open -a ~/Applications/PhpStorm.app "`pwd`"'
+alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
 # PHP
 alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
@@ -99,4 +99,7 @@ alias touchbar="killall ControlStrip"
 alias php-log="open ~/.config/valet/Log/php-fpm.log"
 alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
 alias proxy="ssh -D 1337 -f -C -q -N forge@freek.dev"
+# Claude
 alias claude-usage='npx ccusage blocks --live'
+alias claude-vacatia="CLAUDE_CONFIG_DIR=~/.claude-vacatia claude --dangerously-skip-permissions"
+alias ccd="claude --dangerously-skip-permissions"

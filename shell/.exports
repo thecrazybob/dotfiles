@@ -25,3 +25,13 @@ export GREP_OPTIONS="--color=auto"
 
 # Do not auto update brew
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# DBngin MySQL CLI
+export PATH="/Users/Shared/DBngin/mysql/8.0.33/bin:$PATH"
+
+# PHP 8.4
+export PATH="/opt/homebrew/opt/php@8.4/bin:/opt/homebrew/opt/php@8.4/sbin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
