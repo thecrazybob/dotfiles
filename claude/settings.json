@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "Bash(./vendor/bin/pest:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__laravel-boost__database-query",
+      "Bash(php artisan tinker:*)",
+      "Bash(./vendor/bin/phpstan analyse:*)",
+      "Bash(php artisan test:*)",
+      "mcp__laravel-boost__tinker",
+      "mcp__laravel-boost__read-log-entries",
+      "Bash(vendor/bin/pest:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": false,
+    "code-review@claude-code-plugins": false,
+    "commit-commands@claude-code-plugins": false,
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": false,
+    "linear@claude-plugins-official": false,
+    "code-review@claude-plugins-official": true,
+    "laravel-simplifier@laravel": true,
+    "sentry@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
+}

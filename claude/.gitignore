@@ -1,0 +1,18 @@
+# Safety net - block everything by default, then allowlist
+*
+!.gitignore
+!settings.json
+!statusline.sh
+!commands/
+!commands/**
+
+# Extra safety - never track these patterns even if allowlisted above
+*.local.*
+*.backup
+*.bak
+history.jsonl
+*.jsonl
+projects/
+todos/
+shell-snapshots/
+paste-cache/

@@ -24,6 +24,11 @@ source ~/.zshrc
 │   └── z.sh          # Directory jumper
 ├── macos/
 │   └── set-defaults.sh  # macOS preferences
+├── claude/
+│   ├── settings.json    # Claude Code preferences & plugins
+│   ├── statusline.sh    # Custom status line script
+│   └── commands/        # Custom slash commands
+│       └── interview.md
 └── README.md
 ```
 
@@ -235,6 +240,36 @@ PATH includes:
 - PHP 8.4 (`/opt/homebrew/opt/php@8.4/bin`)
 - MySQL from DBngin
 - Bun (`~/.bun/bin`)
+
+---
+
+## Claude Code Setup
+
+After cloning, symlink Claude configs to use dotfiles versions:
+
+```bash
+# Create ~/.claude if it doesn't exist
+mkdir -p ~/.claude
+
+# Backup existing configs (if any)
+[ -f ~/.claude/settings.json ] && mv ~/.claude/settings.json ~/.claude/settings.json.bak
+[ -f ~/.claude/statusline.sh ] && mv ~/.claude/statusline.sh ~/.claude/statusline.sh.bak
+[ -d ~/.claude/commands ] && mv ~/.claude/commands ~/.claude/commands.bak
+
+# Create symlinks
+ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+ln -sf ~/.dotfiles/claude/statusline.sh ~/.claude/statusline.sh
+ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
+```
+
+**What's tracked:**
+- `settings.json` - Permissions, plugins, statusline config
+- `statusline.sh` - Custom status bar (model, context usage, git info, cost)
+- `commands/` - Custom slash commands like `/interview`
+
+**What's NOT tracked (for security):**
+- `history.jsonl` - Contains conversation history
+- `projects/`, `todos/`, `shell-snapshots/` - Session data
 
 ---
 

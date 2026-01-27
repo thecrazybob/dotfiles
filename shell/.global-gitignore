@@ -26,4 +26,7 @@ yarn-error.log
 .phpunit-watcher-cache.php
 .phpunit.result.cache
 
-.claude
+.playwright-mcp
+
+# Claude Code local settings
+.claude/*.local.*
