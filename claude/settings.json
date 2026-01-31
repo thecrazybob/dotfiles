@@ -40,5 +40,8 @@
     "posthog@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "env": {
+    "ENABLE_TOOL_SEARCH": "true"
+  }
 }
