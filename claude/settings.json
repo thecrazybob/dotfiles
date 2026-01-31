@@ -31,7 +31,7 @@
     "commit-commands@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": false,
+    "plugin-dev@claude-plugins-official": true,
     "linear@claude-plugins-official": false,
     "code-review@claude-plugins-official": true,
     "laravel-simplifier@laravel": true,
