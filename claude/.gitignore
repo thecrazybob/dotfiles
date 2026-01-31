@@ -5,6 +5,10 @@
 !statusline.sh
 !commands/
 !commands/**
+!plugins/
+!plugins/**
+!skills/
+!skills/**
 
 # Extra safety - never track these patterns even if allowlisted above
 *.local.*
