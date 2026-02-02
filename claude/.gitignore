@@ -9,6 +9,8 @@
 !plugins/**
 !skills/
 !skills/**
+!agents/
+!agents/**
 
 # Extra safety - never track these patterns even if allowlisted above
 *.local.*

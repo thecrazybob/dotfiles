@@ -42,7 +42,34 @@
     "sentry@claude-plugins-official": true,
     "posthog@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "linear@claude-plugins-official": true
+    "linear@claude-plugins-official": true,
+    "toggl-timesheet@thecrazybob-private-plugins": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "extraKnownMarketplaces": {
+    "laravel": {
+      "source": {
+        "source": "github",
+        "repo": "laravel/claude-code"
+      }
+    },
+    "thecrazybob-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "thecrazybob/claude-code-plugins"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "thecrazybob-private-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "thecrazybob/claude-code-plugins-private"
+      }
+    }
+  }
 }
