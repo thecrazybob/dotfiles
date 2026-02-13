@@ -1,6 +1,7 @@
 {
   "env": {
-    "ENABLE_TOOL_SEARCH": "true"
+    "ENABLE_TOOL_SEARCH": "true",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "true"
   },
   "permissions": {
     "allow": [
@@ -21,6 +22,7 @@
     "deny": [],
     "defaultMode": "default"
   },
+  "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -43,9 +45,9 @@
     "posthog@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
-    "toggl-timesheet@thecrazybob-private-plugins": true
+    "toggl-timesheet@thecrazybob-private-plugins": true,
+    "warp@claude-code-warp": true
   },
-  "alwaysThinkingEnabled": true,
   "extraKnownMarketplaces": {
     "laravel": {
       "source": {
@@ -71,5 +73,7 @@
         "repo": "thecrazybob/claude-code-plugins-private"
       }
     }
-  }
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }
