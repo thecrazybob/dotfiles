@@ -29,6 +29,12 @@ source ~/.zshrc
 │   ├── statusline.sh    # Custom status line script
 │   └── commands/        # Custom slash commands
 │       └── interview.md
+├── opencode/
+│   ├── package.json     # OpenCode plugin dependencies
+│   ├── bun.lock         # Bun lockfile
+│   └── commands/        # Global slash commands
+│       ├── commit.md
+│       └── commit-push-pr.md
 └── README.md
 ```
 
@@ -270,6 +276,38 @@ ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
 **What's NOT tracked (for security):**
 - `history.jsonl` - Contains conversation history
 - `projects/`, `todos/`, `shell-snapshots/` - Session data
+
+---
+
+## OpenCode Setup
+
+After cloning, symlink OpenCode configs to use dotfiles versions:
+
+```bash
+# Create ~/.config/opencode if it doesn't exist
+mkdir -p ~/.config/opencode
+
+# Backup existing configs (if any)
+[ -d ~/.config/opencode/commands ] && mv ~/.config/opencode/commands ~/.config/opencode/commands.bak
+[ -f ~/.config/opencode/package.json ] && mv ~/.config/opencode/package.json ~/.config/opencode/package.json.bak
+[ -f ~/.config/opencode/bun.lock ] && mv ~/.config/opencode/bun.lock ~/.config/opencode/bun.lock.bak
+
+# Create symlinks
+ln -sf ~/.dotfiles/opencode/commands ~/.config/opencode/commands
+ln -sf ~/.dotfiles/opencode/package.json ~/.config/opencode/package.json
+ln -sf ~/.dotfiles/opencode/bun.lock ~/.config/opencode/bun.lock
+
+# Install plugin dependencies
+cd ~/.config/opencode && bun install
+```
+
+**What's tracked:**
+- `commands/` - Global slash commands (`/commit`, `/commit-push-pr`)
+- `package.json` - Plugin dependencies (`@opencode-ai/plugin`)
+- `bun.lock` - Dependency lockfile
+
+**What's NOT tracked (for security):**
+- `node_modules/` - Installed dependencies (rebuilt via `bun install`)
 
 ---
 

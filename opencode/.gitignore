@@ -1,0 +1,13 @@
+# Safety net - block everything by default, then allowlist
+*
+!.gitignore
+!commands/
+!commands/**
+!package.json
+!bun.lock
+
+# Extra safety - never track these patterns even if allowlisted above
+*.local.*
+*.backup
+*.bak
+node_modules/
