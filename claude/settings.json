@@ -2,7 +2,8 @@
   "env": {
     "ENABLE_TOOL_SEARCH": "true",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "true",
-    "CLAUDE_TEAMMATE_MODE": "tmux"
+    "CLAUDE_TEAMMATE_MODE": "tmux",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   },
   "permissions": {
     "allow": [
@@ -49,7 +50,8 @@
     "toggl-timesheet@thecrazybob-private-plugins": true,
     "warp@claude-code-warp": true,
     "superpowers@superpowers-marketplace": true,
-    "valet-wt@thecrazybob-plugins": true
+    "valet-wt@thecrazybob-plugins": true,
+    "worktrunk@worktrunk": true
   },
   "extraKnownMarketplaces": {
     "laravel": {
@@ -78,5 +80,6 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "model": "sonnet"
 }

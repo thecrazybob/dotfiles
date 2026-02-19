@@ -63,3 +63,9 @@ alias nginx-log="open ~/.config/valet/Log/nginx-error.log"
 alias claude-usage='npx ccusage blocks --live'
 alias claude-vacatia="CLAUDE_CONFIG_DIR=~/.claude-vacatia claude --dangerously-skip-permissions"
 alias ccd="claude --dangerously-skip-permissions"
+alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox"
+
+# Worktree + AI agents (wt switch --create, then launch agent)
+alias wsc='wt switch --create -x ccd'
+alias wscv='wt switch --create -x claude-vacatia'
+alias wscodex='wt switch --create -x "codex --dangerously-bypass-approvals-and-sandbox"'
