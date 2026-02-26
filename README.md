@@ -35,6 +35,8 @@ source ~/.zshrc
 │   └── commands/        # Global slash commands
 │       ├── commit.md
 │       └── commit-push-pr.md
+├── ghostty/
+│   └── config           # Ghostty terminal configuration
 └── README.md
 ```
 
@@ -308,6 +310,26 @@ cd ~/.config/opencode && bun install
 
 **What's NOT tracked (for security):**
 - `node_modules/` - Installed dependencies (rebuilt via `bun install`)
+
+---
+
+## Ghostty Setup
+
+After cloning, symlink the Ghostty config:
+
+```bash
+# Backup existing config (if any)
+[ -f ~/Library/Application\ Support/com.mitchellh.ghostty/config ] && \
+  mv ~/Library/Application\ Support/com.mitchellh.ghostty/config \
+     ~/Library/Application\ Support/com.mitchellh.ghostty/config.bak
+
+# Create symlink
+ln -sf ~/.dotfiles/ghostty/config \
+  ~/Library/Application\ Support/com.mitchellh.ghostty/config
+```
+
+**What's tracked:**
+- `config` - Theme (Night Owl), font, cursor, window, keybinds, quick terminal
 
 ---
 

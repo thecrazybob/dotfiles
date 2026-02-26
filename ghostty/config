@@ -1,0 +1,58 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /Users/bob/Library/Application Support/com.mitchellh.ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+# Font
+font-family = JetBrains Mono
+font-size = 16
+adjust-cell-height = 2
+
+# Theme
+theme = Night Owl
+
+# Cursor
+cursor-style = bar
+
+# Window
+background-opacity = 0.92
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-save-state = always
+window-height = 36
+window-width = 120
+
+# macOS
+macos-option-as-alt = left
+macos-non-native-fullscreen = true
+macos-titlebar-style = hidden
+
+# Behavior
+mouse-hide-while-typing = true
+quit-after-last-window-closed = false
+unfocused-split-opacity = 0.85
+shell-integration-features = cursor,sudo,title
+auto-update = check
+
+# Quick Terminal (set global hotkey in macOS System Settings > Keyboard > Shortcuts > Services)
+quick-terminal-position = top
+keybind = global:ctrl+space=toggle_quick_terminal
