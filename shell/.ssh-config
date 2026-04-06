@@ -1,0 +1,17 @@
+Host *
+AddKeysToAgent yes
+UseKeychain yes
+
+Host github-thecrazybob
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_thecrazybob
+
+Host github.com
+  Hostname github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_thecrazybob
+
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
