@@ -20,6 +20,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # 4. Symlink shell configs
 ln -sf ~/.dotfiles/shell/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/shell/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/shell/.global-gitignore ~/.global-gitignore
 mkdir -p ~/.ssh
 ln -sf ~/.dotfiles/shell/.ssh-config ~/.ssh/config
 
