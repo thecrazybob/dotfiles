@@ -32,26 +32,24 @@
   "enabledPlugins": {
     "laravel-simplifier@laravel": true,
     "forge-cli@thecrazybob-plugins": true,
-    "laravel-valet-worktree@thecrazybob-plugins": true,
-    "frontend-design@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
     "context7@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "sentry@claude-plugins-official": true,
-    "posthog@claude-plugins-official": true,
+    "posthog@claude-plugins-official": false,
     "commit-commands@claude-plugins-official": true,
-    "linear@claude-plugins-official": true,
+    "linear@claude-plugins-official": false,
     "toggl-timesheet@thecrazybob-private-plugins": true,
-    "warp@claude-code-warp": true,
     "superpowers@superpowers-marketplace": true,
     "valet-wt@thecrazybob-plugins": true,
-    "worktrunk@worktrunk": true
+    "worktrunk@worktrunk": true,
+    "telegram@claude-plugins-official": true,
+    "impeccable@impeccable": true
   },
   "extraKnownMarketplaces": {
     "laravel": {
@@ -77,9 +75,21 @@
         "source": "github",
         "repo": "thecrazybob/claude-code-plugins-private"
       }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "model": "sonnet"
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true
 }
