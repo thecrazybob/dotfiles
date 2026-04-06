@@ -11,6 +11,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Enable Dark Mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -151,7 +154,7 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -186,11 +189,17 @@ defaults write com.apple.screencapture "name" -string "screenshot"
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
+# Position Dock on the left
+defaults write com.apple.dock orientation -string "left"
+
 # Prevent applications from bouncing in Dock
 defaults write com.apple.dock no-bouncing -bool true
 
-# Set the icon size of Dock items to 72 pixels
-defaults write com.apple.dock tilesize -int 72
+# Set the icon size of Dock items
+defaults write com.apple.dock tilesize -int 57
+
+# Hide recent applications from the Dock
+defaults write com.apple.dock show-recents -bool false
 
 # Hide indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool false
