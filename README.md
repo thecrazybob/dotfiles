@@ -7,7 +7,45 @@ Personal dotfiles for macOS development, optimized for PHP/Laravel development i
 ## Installation
 
 ```bash
+# 1. Clone
 git clone git@github.com:thecrazybob/dotfiles.git ~/.dotfiles
+
+# 2. Install Homebrew + packages
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --file=~/.dotfiles/Brewfile
+
+# 3. Oh-My-Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# 4. Symlink shell configs
+ln -sf ~/.dotfiles/shell/.zshrc ~/.zshrc
+ln -sf ~/.dotfiles/shell/.gitconfig ~/.gitconfig
+mkdir -p ~/.ssh
+ln -sf ~/.dotfiles/shell/.ssh-config ~/.ssh/config
+
+# 5. Symlink Claude Code configs
+mkdir -p ~/.claude
+ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+ln -sf ~/.dotfiles/claude/statusline.sh ~/.claude/statusline.sh
+ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
+ln -sf ~/.dotfiles/claude/agents ~/.claude/agents
+ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
+
+# 6. Symlink Ghostty config
+mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+ln -sf ~/.dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+# 7. Symlink OpenCode config
+mkdir -p ~/.config/opencode
+ln -sf ~/.dotfiles/opencode/commands ~/.config/opencode/commands
+ln -sf ~/.dotfiles/opencode/package.json ~/.config/opencode/package.json
+ln -sf ~/.dotfiles/opencode/bun.lock ~/.config/opencode/bun.lock
+cd ~/.config/opencode && bun install
+
+# 8. macOS defaults
+cd ~/.dotfiles/macos && ./set-defaults.sh
+
+# 9. Load shell
 source ~/.zshrc
 ```
 
@@ -15,28 +53,30 @@ source ~/.zshrc
 
 ```
 ~/.dotfiles/
+├── Brewfile              # Homebrew packages, casks & apps
 ├── shell/
-│   ├── .aliases      # Command shortcuts
-│   ├── .exports      # Environment variables
-│   ├── .functions    # Shell functions
-│   ├── .zshrc        # Zsh configuration
+│   ├── .aliases          # Command shortcuts
+│   ├── .exports          # Environment variables
+│   ├── .functions        # Shell functions
+│   ├── .gitconfig        # Global git configuration
+│   ├── .ssh-config       # SSH host configuration
+│   ├── .zshrc            # Zsh configuration
 │   ├── .global-gitignore
-│   └── z.sh          # Directory jumper
+│   └── z.sh              # Directory jumper
 ├── macos/
-│   └── set-defaults.sh  # macOS preferences
+│   └── set-defaults.sh   # macOS preferences
 ├── claude/
-│   ├── settings.json    # Claude Code preferences & plugins
-│   ├── statusline.sh    # Custom status line script
-│   └── commands/        # Custom slash commands
-│       └── interview.md
+│   ├── settings.json     # Claude Code preferences & plugins
+│   ├── statusline.sh     # Custom status line script
+│   ├── commands/         # Custom slash commands
+│   ├── agents/           # Custom subagent definitions
+│   └── skills/           # Custom skill definitions
 ├── opencode/
-│   ├── package.json     # OpenCode plugin dependencies
-│   ├── bun.lock         # Bun lockfile
-│   └── commands/        # Global slash commands
-│       ├── commit.md
-│       └── commit-push-pr.md
+│   ├── package.json      # OpenCode plugin dependencies
+│   ├── bun.lock          # Bun lockfile
+│   └── commands/         # Global slash commands
 ├── ghostty/
-│   └── config           # Ghostty terminal configuration
+│   └── config            # Ghostty terminal configuration
 └── README.md
 ```
 
@@ -58,13 +98,6 @@ source ~/.zshrc
 | `sail` | `./vendor/bin/sail` | Laravel Sail |
 | `aoc` | `php artisan optimize:clear` | Clear all caches |
 | `livewire` | `php artisan livewire` | Livewire commands |
-
-### PHP Version Switching
-
-| Alias | Description |
-|-------|-------------|
-| `switch-php83` | Switch to PHP 8.3 |
-| `switch-php84` | Switch to PHP 8.4 |
 
 ### Composer
 
@@ -122,13 +155,28 @@ source ~/.zshrc
 | `php-log` | Open Valet PHP log |
 | `nginx-log` | Open Valet nginx log |
 
-### Claude
+### Forge
+
+| Alias | Description |
+|-------|-------------|
+| `forge` | Laravel Forge CLI (suppresses PHP deprecation warnings) |
+
+### Claude & AI
 
 | Alias | Description |
 |-------|-------------|
 | `ccd` | Claude with `--dangerously-skip-permissions` |
 | `claude-vacatia` | Claude with alternate config directory |
 | `claude-usage` | Check Claude API usage |
+| `codex-yolo` | Codex with `--dangerously-bypass-approvals-and-sandbox` |
+
+### Worktree + AI Agents
+
+| Alias | Description |
+|-------|-------------|
+| `wsc` | Create worktree and launch Claude Code |
+| `wscv` | Create worktree and launch Claude (vacatia config) |
+| `wscodex` | Create worktree and launch Codex |
 
 ---
 
@@ -214,11 +262,6 @@ Run `macos/set-defaults.sh` to configure macOS preferences:
 - **Safari**: Enable developer tools
 - **Timezone**: Europe/Istanbul
 
-```bash
-cd ~/.dotfiles/macos
-./set-defaults.sh
-```
-
 ---
 
 ## Global Gitignore
@@ -245,91 +288,21 @@ Key exports in `shell/.exports`:
 
 PATH includes:
 - Homebrew (`/opt/homebrew/bin`)
-- PHP 8.4 (`/opt/homebrew/opt/php@8.4/bin`)
-- MySQL from DBngin
+- Composer (`~/.composer/vendor/bin`)
 - Bun (`~/.bun/bin`)
+- pnpm (`~/Library/pnpm`)
+- NVM-managed Node
+- Claude Code (`~/.local/bin`)
 
 ---
 
-## Claude Code Setup
+## What's NOT tracked (for security)
 
-After cloning, symlink Claude configs to use dotfiles versions:
-
-```bash
-# Create ~/.claude if it doesn't exist
-mkdir -p ~/.claude
-
-# Backup existing configs (if any)
-[ -f ~/.claude/settings.json ] && mv ~/.claude/settings.json ~/.claude/settings.json.bak
-[ -f ~/.claude/statusline.sh ] && mv ~/.claude/statusline.sh ~/.claude/statusline.sh.bak
-[ -d ~/.claude/commands ] && mv ~/.claude/commands ~/.claude/commands.bak
-
-# Create symlinks
-ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
-ln -sf ~/.dotfiles/claude/statusline.sh ~/.claude/statusline.sh
-ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
-```
-
-**What's tracked:**
-- `settings.json` - Permissions, plugins, statusline config
-- `statusline.sh` - Custom status bar (model, context usage, git info, cost)
-- `commands/` - Custom slash commands like `/interview`
-
-**What's NOT tracked (for security):**
-- `history.jsonl` - Contains conversation history
-- `projects/`, `todos/`, `shell-snapshots/` - Session data
-
----
-
-## OpenCode Setup
-
-After cloning, symlink OpenCode configs to use dotfiles versions:
-
-```bash
-# Create ~/.config/opencode if it doesn't exist
-mkdir -p ~/.config/opencode
-
-# Backup existing configs (if any)
-[ -d ~/.config/opencode/commands ] && mv ~/.config/opencode/commands ~/.config/opencode/commands.bak
-[ -f ~/.config/opencode/package.json ] && mv ~/.config/opencode/package.json ~/.config/opencode/package.json.bak
-[ -f ~/.config/opencode/bun.lock ] && mv ~/.config/opencode/bun.lock ~/.config/opencode/bun.lock.bak
-
-# Create symlinks
-ln -sf ~/.dotfiles/opencode/commands ~/.config/opencode/commands
-ln -sf ~/.dotfiles/opencode/package.json ~/.config/opencode/package.json
-ln -sf ~/.dotfiles/opencode/bun.lock ~/.config/opencode/bun.lock
-
-# Install plugin dependencies
-cd ~/.config/opencode && bun install
-```
-
-**What's tracked:**
-- `commands/` - Global slash commands (`/commit`, `/commit-push-pr`)
-- `package.json` - Plugin dependencies (`@opencode-ai/plugin`)
-- `bun.lock` - Dependency lockfile
-
-**What's NOT tracked (for security):**
-- `node_modules/` - Installed dependencies (rebuilt via `bun install`)
-
----
-
-## Ghostty Setup
-
-After cloning, symlink the Ghostty config:
-
-```bash
-# Backup existing config (if any)
-[ -f ~/Library/Application\ Support/com.mitchellh.ghostty/config ] && \
-  mv ~/Library/Application\ Support/com.mitchellh.ghostty/config \
-     ~/Library/Application\ Support/com.mitchellh.ghostty/config.bak
-
-# Create symlink
-ln -sf ~/.dotfiles/ghostty/config \
-  ~/Library/Application\ Support/com.mitchellh.ghostty/config
-```
-
-**What's tracked:**
-- `config` - Theme (Night Owl), font, cursor, window, keybinds, quick terminal
+- `~/.npmrc` — contains npm auth token
+- `~/.composer/auth.json` — OAuth tokens
+- `~/.ssh/*` (private keys) — only the config is tracked
+- `~/.claude/history.jsonl` — conversation history
+- `~/.claude/projects/`, `todos/`, `shell-snapshots/` — session data
 
 ---
 
@@ -344,3 +317,16 @@ touch ~/.dotfiles-custom/shell/.exports
 ```
 
 These are automatically sourced by `.zshrc`.
+
+---
+
+## Manual Installs
+
+Apps not available via Homebrew:
+
+- **Bear** — Mac App Store
+- **Things 3** — Mac App Store
+- **Xcode** — Mac App Store (`xcode-select --install` for CLI tools)
+- **Beeper Desktop** — [beeper.com](https://beeper.com)
+
+PHP versions and extensions are managed via **PHP Monitor** (installed via Brewfile).
