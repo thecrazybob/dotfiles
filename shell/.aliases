@@ -10,10 +10,6 @@ alias sail='./vendor/bin/sail'
 alias aoc="php artisan optimize:clear"
 alias livewire="php artisan livewire"
 
-# PHP version switching
-alias switch-php83="brew unlink php@8.4 && brew link --overwrite --force php@8.3"
-alias switch-php84="brew unlink php@8.3 && brew link --overwrite --force php@8.4"
-
 # Composer
 alias c="composer"
 alias cu="composer update"
@@ -52,7 +48,7 @@ alias sudo='sudo '
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias hostfile="sudo nano /etc/hosts"
 alias sshconfig="nano ~/.ssh/config"
-alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
+alias copykey='command cat ~/.ssh/id_rsa_thecrazybob.pub | pbcopy'
 alias flush-redis="redis-cli FLUSHALL"
 
 # Logs
@@ -64,6 +60,9 @@ alias claude-usage='npx ccusage blocks --live'
 alias claude-vacatia="CLAUDE_CONFIG_DIR=~/.claude-vacatia claude --dangerously-skip-permissions"
 alias ccd="claude --dangerously-skip-permissions"
 alias codex-yolo="codex --dangerously-bypass-approvals-and-sandbox"
+
+# Forge (suppress PHP deprecation warnings)
+alias forge="php -d error_reporting=E_ALL\&~E_DEPRECATED ~/.composer/vendor/bin/forge"
 
 # Worktree + AI agents (wt switch --create, then launch agent)
 alias wsc='wt switch --create -x ccd'
