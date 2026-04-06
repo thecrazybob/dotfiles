@@ -278,6 +278,18 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
+# Terminal.app                                                                 #
+###############################################################################
+
+# Set Terminal.app font size to 24pt
+osascript -e '
+tell application "Terminal"
+    set font size of settings set "Basic" to 24
+    set font size of settings set "Clear Dark" to 24
+end tell
+' 2>/dev/null
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
