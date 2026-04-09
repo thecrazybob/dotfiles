@@ -94,3 +94,7 @@ export PATH=$HOME/bin:$PATH
 
 # Worktrunk
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+
+export PATH=$HOME/bin:~/.config/phpmon/bin:$PATH
+
