@@ -91,8 +91,6 @@ function weather() {
    curl http://wttr.in/${city// /+}\?F
 }
 
-alias mysqladm='mysql -u root'
-
 # Scrape a single webpage with all assets
 function scrapeUrl() {
     wget --adjust-extension --convert-links --page-requisites --span-hosts --no-host-directories "$1"

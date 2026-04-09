@@ -50,9 +50,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 export PATH=$HOME/.dotfiles/bin:$PATH
 
-# Import ssh keys in keychain
-ssh-add -A 2>/dev/null;
-
 # Setup xdebug
 export XDEBUG_CONFIG="idekey=VSCODE"
 

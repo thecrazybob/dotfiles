@@ -68,3 +68,6 @@ alias forge="php -d error_reporting=E_ALL\&~E_DEPRECATED ~/.composer/vendor/bin/
 alias wsc='wt switch --create -x ccd'
 alias wscv='wt switch --create -x claude-vacatia'
 alias wscodex='wt switch --create -x "codex --dangerously-bypass-approvals-and-sandbox"'
+
+# Database
+alias mysqladm='mysql -u root'
